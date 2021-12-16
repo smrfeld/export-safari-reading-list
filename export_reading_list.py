@@ -234,7 +234,7 @@ def main():
     Popen(command, shell=True).wait()
 
     # Load the plist file
-    with open("tmp.plist",'rb') as f:
+    with open(fname_plist,'rb') as f:
         res = plistlib.load(f)
     
     # Find the reading list items

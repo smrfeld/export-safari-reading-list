@@ -1,5 +1,9 @@
 # Export Safari reading list to CSV or JSON
 
+<img src="readme_imgs/reading_list.jpg" alt="drawing" width="400"/>
+
+## Sample results
+
 <img src="readme_imgs/json.png" alt="drawing" width="700"/>
 
 <img src="readme_imgs/csv.png" alt="drawing" width="700"/>
