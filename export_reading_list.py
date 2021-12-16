@@ -193,30 +193,33 @@ def main():
         help='Name of output JSON or CSV file'
         )
     parser.add_argument(
-        '--fname_bookmarks', 
+        '--fname-bookmarks', 
+        dest='fname_bookmarks',
         type=str, 
         help='Bookmarks.plist file', 
         default="~/Library/Safari/Bookmarks.plist"
         )
     parser.add_argument(
-        '--dir_icons_out',
+        '--dir-icons-out',
+        dest='dir_icons_out',
         type=str,
         help='Name of output directory for icons'
         )
     parser.add_argument(
-        '--dir_icons', 
+        '--dir-icons', 
+        dest='dir_icons',
         type=str, 
         help='Reading list icons directory', 
         default="~/Library/Safari/ReadingListArchives"
         )
     parser.add_argument(
-        '--include_data', 
+        '--include-data', 
         dest='include_data', 
         action='store_true',
         help='Include the cached data for the site'
         )
     parser.add_argument(
-        '--exclude_data', 
+        '--exclude-data', 
         dest='include_data', 
         action='store_false',
         help='Exclude the cached data for the site'

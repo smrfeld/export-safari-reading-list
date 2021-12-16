@@ -30,21 +30,21 @@ Basic usage:
 Options:
 * Also copy the reading list icons:
     ```
-    python export_reading_list.py csv reading_list.csv --dir_icons_out reading_list_icons
+    python export_reading_list.py csv reading_list.csv --dir-icons-out reading_list_icons
     ```
     copies the icons to the folder `reading_list_icons`. They match up to the entries through the `WebBookmarkUUID` key.
 * Specify the source directory for the icons:
     ```
-    python export_reading_list.py csv reading_list.csv --dir_icons ~/Library/Safari/ReadingListArchives
+    python export_reading_list.py csv reading_list.csv --dir-icons ~/Library/Safari/ReadingListArchives
     ```
     The default is `~/Library/Safari/ReadingListArchives`.
 * Specify the source directory for the reading list `.plist` file:
     ```
-    python export_reading_list.py csv reading_list.csv --fname_bookmarks ~/Library/Safari/Bookmarks.plist
+    python export_reading_list.py csv reading_list.csv --fname-bookmarks ~/Library/Safari/Bookmarks.plist
     ```
     The default is `~/Library/Safari/Bookmarks.plist`.
 * Include cached data for the websites:
     ```
-    python export_reading_list.py csv reading_list.csv --include_data
+    python export_reading_list.py csv reading_list.csv --include-data
     ```
-    The data is written to the `Data` field. The default is the `--exclude_data` option, which excludes the data.
+    The data is written to the `Data` field. The default is the `--exclude-data` option, which excludes the data.
