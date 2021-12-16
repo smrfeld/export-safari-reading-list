@@ -52,3 +52,13 @@ Options:
     python export_reading_list.py csv reading_list.csv --include-data
     ```
     The data is written to the `Data` field. The default is the `--exclude-data` option, which excludes the data.
+
+## Website
+
+To generate the website from the `website_template` folder, run:
+```
+python website.py reading_list.json reading_list_icons
+```
+The output is in the `website_out` folder.
+
+<img src="readme_imgs/website.png" alt="drawing" width="800"/>
