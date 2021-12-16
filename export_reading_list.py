@@ -48,6 +48,8 @@ def find_dicts_with_rlist_keys_in_dict(base_dict):
         
     return ret
 
+import base64
+
 @dataclass
 class ReadingListItem(json.JSONEncoder):
 
@@ -59,6 +61,7 @@ class ReadingListItem(json.JSONEncoder):
     URLString: str
     DateAdded: datetime.datetime
 
+    Data: Union[str,None] = None
     siteName: Union[str,None] = None
     PreviewText: Union[str,None] = None
     DateLastFetched: Union[datetime.datetime,None] = None
@@ -80,6 +83,8 @@ class ReadingListItem(json.JSONEncoder):
             "DateAdded": self.DateAdded.strftime(df)
             }
 
+        if self.Data != None:
+            res["Data"] = base64.b64encode(self.Data).decode('utf-8')
         if self.siteName != None:
             res["siteName"] = self.siteName
         if self.PreviewText != None:
@@ -117,6 +122,11 @@ class ReadingListItem(json.JSONEncoder):
             "NumberOfFailedLoadsWithUnknownOrNonRecoverableError": self.NumberOfFailedLoadsWithUnknownOrNonRecoverableError
             }
 
+        if self.Data != None:
+            res["Data"] = base64.b64encode(self.Data).decode('utf-8')
+        else:
+            res["Data"] = None
+
         if self.DateAdded != None:
             res["DateAdded"] = self.DateAdded.strftime(df)
         else:
@@ -130,7 +140,7 @@ class ReadingListItem(json.JSONEncoder):
         return res
 
     @classmethod
-    def fromRDict(cls, r):
+    def fromRDict(cls, r, include_data):
         ritem = cls(
             title=r['URIDictionary']['title'],
             ServerID=r['Sync']['ServerID'],
@@ -140,6 +150,9 @@ class ReadingListItem(json.JSONEncoder):
             URLString=r['URLString'],
             DateAdded=r['ReadingList']['DateAdded']
             )
+        
+        if include_data:
+            ritem.Data = r['Sync']['Data']
         
         if 'ReadingListNonSync' in r and 'siteName' in r['ReadingListNonSync']:
             ritem.siteName = r['ReadingListNonSync']['siteName']
@@ -196,6 +209,20 @@ def main():
         help='Reading list icons directory', 
         default="~/Library/Safari/ReadingListArchives"
         )
+    parser.add_argument(
+        '--include_data', 
+        dest='include_data', 
+        action='store_true',
+        help='Include the cached data for the site'
+        )
+    parser.add_argument(
+        '--exclude_data', 
+        dest='include_data', 
+        action='store_false',
+        help='Exclude the cached data for the site'
+        )
+    parser.set_defaults(include_data=False)
+
     args = parser.parse_args()
 
     fname_plist = "tmp.plist"
@@ -206,13 +233,13 @@ def main():
     with open("tmp.plist",'rb') as f:
         res = plistlib.load(f)
     
-    res = rm_data_from_dict(res)
+    # res = rm_data_from_dict(res)
+    print(args.include_data)
     rlist = find_dicts_with_rlist_keys_in_dict(res)
-
     print("You have: %d items in your reading list" % len(rlist))
 
     # Iterate over reading list items
-    ritems = [ ReadingListItem.fromRDict(r) for r in rlist ]
+    ritems = [ ReadingListItem.fromRDict(r,args.include_data) for r in rlist ]
     
     # Dump
     if args.output_mode == 'json':

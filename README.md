@@ -43,3 +43,8 @@ Options:
     python export_reading_list.py csv reading_list.csv --fname_bookmarks ~/Library/Safari/Bookmarks.plist
     ```
     The default is `~/Library/Safari/Bookmarks.plist`.
+* Include cached data for the websites:
+    ```
+    python export_reading_list.py csv reading_list.csv --include_data
+    ```
+    The data is written to the `Data` field. The default is the `--exclude_data` option, which excludes the data.
