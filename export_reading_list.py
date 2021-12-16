@@ -8,6 +8,7 @@ from typing import Union
 import datetime
 import json
 import csv
+import base64
 
 def rm_data_from_dicts_in_list(base_list):
     for i in range(0,len(base_list)):
@@ -47,8 +48,6 @@ def find_dicts_with_rlist_keys_in_dict(base_dict):
             break
         
     return ret
-
-import base64
 
 @dataclass
 class ReadingListItem(json.JSONEncoder):
@@ -240,7 +239,6 @@ def main():
     
     # Find the reading list items
     # res = rm_data_from_dict(res)
-    print(args.include_data)
     rlist = find_dicts_with_rlist_keys_in_dict(res)
     print("You have: %d items in your reading list" % len(rlist))
 
