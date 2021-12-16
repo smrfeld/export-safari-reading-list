@@ -11,6 +11,8 @@ The [plistlib](https://docs.python.org/3/library/plistlib.html) module:
 pip install plistlib
 ```
 
+Tested on mac `11.4` Big Sur, Safari `14.1.1`.
+
 ## Usage
 
 Basic usage:
