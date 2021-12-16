@@ -228,14 +228,17 @@ def main():
 
     args = parser.parse_args()
 
+    # Copy the plist file for safety
     fname_plist = "tmp.plist"
     command = "cp %s %s" % (args.fname_bookmarks, fname_plist)
     print("Making temporary copy of reading list: %s" % command)
     Popen(command, shell=True).wait()
 
+    # Load the plist file
     with open("tmp.plist",'rb') as f:
         res = plistlib.load(f)
     
+    # Find the reading list items
     # res = rm_data_from_dict(res)
     print(args.include_data)
     rlist = find_dicts_with_rlist_keys_in_dict(res)
