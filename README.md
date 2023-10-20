@@ -50,8 +50,9 @@ See [reading_list.json](reading_list.json). The format is a list of dictionaries
 
 ### Website
 
-To generate the website from the `website_template` folder, run:
+To generate the website from the `website` folder, run:
 ```
+cd website
 python website.py reading_list.json reading_list_icons
 ```
 The output is in the `website_out` folder.

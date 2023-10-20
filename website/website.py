@@ -3,6 +3,7 @@ import os
 import argparse
 from subprocess import Popen
 
+
 def assemble_from_template(
     fname_header: str, 
     fname_template: str, 
@@ -47,6 +48,7 @@ def assemble_from_template(
     with open(fname_output,'w') as f:
         f.write(assembled)
 
+
 def main():
 
     parser = argparse.ArgumentParser(description='Generate static html code.')
@@ -79,6 +81,7 @@ def main():
         fname_output=os.path.join(dir_out,"index.html"),
         icon_folder=os.path.basename(args.dir_icons)
         )
+
 
 if __name__ == "__main__":
     main()
