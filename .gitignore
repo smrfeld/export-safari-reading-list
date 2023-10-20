@@ -5,3 +5,4 @@ website_out/
 *.json
 reading_list_icons/
 *.egg-info/
+__pycache__/

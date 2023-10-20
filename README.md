@@ -8,14 +8,14 @@
 
 <img src="readme_imgs/csv.png" alt="drawing" width="700"/>
 
-## Requirements
 
-The [plistlib](https://docs.python.org/3/library/plistlib.html) module:
-```
-pip install plistlib
-```
+## Errors
 
-Tested on mac `11.4` Big Sur, Safari `14.1.1`.
+If you are getting some error like this:
+```bash
+cp: /Users/XXX/Library/Safari/Bookmarks.plist: Operation not permitted
+```
+You need to give the terminal full disk access. Go to `Settings/Security & Privacy/Full Disk Access`. Navigate to `/Applications/Utilities/` folder and choose the `Terminal` app. If you are launching the command from VS Code you will need to add this as well.
 
 ## Usage
 
