@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="safarireadinglist",
-    version="0.1.0",
+    version="0.1.1",
     author="Oliver K. Ernst",
     description="Safari reading list",
     long_description=long_description,

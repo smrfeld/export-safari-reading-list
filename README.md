@@ -2,25 +2,31 @@
 
 `safarireadinglist` is a Python package to load your Safari reading list into Python, and to export it, including thumbnail icons.
 
-<img src="readme_imgs/reading_list.jpg" alt="drawing" width="400"/>
+<img src="https://github.com/smrfeld/export-safari-reading-list/blob/main/readme_imgs/reading_list.jpg?raw=true" alt="drawing" width="400"/>
 
 ## Sample results
 
-<img src="readme_imgs/json.png" alt="drawing" width="700"/>
+<img src="https://github.com/smrfeld/export-safari-reading-list/blob/main/readme_imgs/json.png?raw=true" alt="drawing" width="700"/>
 
-<img src="readme_imgs/csv.png" alt="drawing" width="700"/>
+<img src="https://github.com/smrfeld/export-safari-reading-list/blob/main/readme_imgs/csv.png?raw=true" alt="drawing" width="700"/>
 
 ## Installation
 
-Install the `safarireadinglist` package in the root directory.
+Install the `safarireadinglist` package from PyPI:
+
+```bash
+pip install safarireadinglist
+```
+
+Note: before using, you need to give the terminal full disk access in the system preferences. Go to `Settings/Security & Privacy/Full Disk Access`. Navigate to `/Applications/Utilities/` folder and choose the `Terminal` app. If you are launching the command from VS Code you will need to add this as well.
+
+*Alternative local installation:*
 
 ```bash
 pip install -e .
 ```
 
 Note: `setuptools` is the only requirement. For dev purposes, you may want to install the exact versions in `pip install -r requirements.txt`.
-
-Final note: You need to give the terminal full disk access in the system preferences. See common errors below for instructions.
 
 ## Usage
 
@@ -59,7 +65,7 @@ python website.py reading_list.json reading_list_icons
 ```
 The output is in the `website_out` folder.
 
-<img src="readme_imgs/website.png" alt="drawing" width="800"/>
+<img src="https://github.com/smrfeld/export-safari-reading-list/blob/main/readme_imgs/website.png?raw=true" alt="drawing" width="800"/>
 
 ## Known errors & solutions
 
