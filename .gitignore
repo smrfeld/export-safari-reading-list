@@ -6,3 +6,4 @@ website_out/
 reading_list_icons/
 *.egg-info/
 __pycache__/
+dist/
