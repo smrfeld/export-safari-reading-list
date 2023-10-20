@@ -4,3 +4,4 @@ website_out/
 *.csv
 *.json
 reading_list_icons/
+*.egg-info/
