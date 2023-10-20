@@ -1,4 +1,6 @@
-# Export Safari reading list to CSV or JSON
+# Safari reading list in Python
+
+`safarireadinglist` is a Python package to load your Safari reading list into Python, and to export it, including thumbnail icons.
 
 <img src="readme_imgs/reading_list.jpg" alt="drawing" width="400"/>
 
