@@ -8,6 +8,16 @@
 
 <img src="readme_imgs/csv.png" alt="drawing" width="700"/>
 
+## Installation
+
+Install the `safarireadinglist` package in the root directory.
+
+```bash
+pip install -e .
+```
+
+Note: `setuptools` is the only requirement. For dev purposes, you may want to install the exact versions in `pip install -r requirements.txt`.
+
 
 ## Errors
 
