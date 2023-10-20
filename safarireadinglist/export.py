@@ -33,7 +33,7 @@ def export_reading_list(
         logger.debug("You have: %d items in your reading list" % len(rlist))
 
         # Iterate over reading list items
-        ritems = [ ReadingListItem.from_dict(r, include_data) for r in rlist ]
+        ritems = [ ReadingListItem.from_reading_list_dict(r, include_data) for r in rlist ]
         
     finally:
 
@@ -45,9 +45,9 @@ def export_reading_list(
     logger.debug("Done.")
 
     return ritems
-    
 
-def copy_icons(dir_icons_in: str, dir_icons_out: str):
+
+def export_icons(dir_icons_out: str, dir_icons_in: str = "~/Library/Safari/ReadingListArchives"):
     os.makedirs(dir_icons_out, exist_ok=True)
     command = "cp -r %s %s" % (dir_icons_in, dir_icons_out)
     logger.debug("Copying icons directory: %s" % command)

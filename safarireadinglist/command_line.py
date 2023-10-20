@@ -87,7 +87,7 @@ def cli():
         logger.info(f"Wrote reading list to file: {args.fname_out}")
     
     elif args.command == 'export-icons':
-        srl.copy_icons(args.dir_icons, args.dir_icons_out)
+        srl.export_icons(args.dir_icons_out, dir_icons_in=args.dir_icons)
         logger.info(f"Exported icons to directory: {args.dir_icons_out}")
 
     else:

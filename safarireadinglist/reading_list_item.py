@@ -117,7 +117,31 @@ class ReadingListItem(json.JSONEncoder):
 
 
     @classmethod
-    def from_dict(cls, r: Dict, include_data: bool):
+    def from_dict(cls, r: Dict):
+        ritem = cls(
+            title=r['title'],
+            ServerID=r['ServerID'],
+            neverFetchMetadata=r['neverFetchMetadata'],
+            WebBookmarkType=r['WebBookmarkType'],
+            WebBookmarkUUID=r['WebBookmarkUUID'],
+            URLString=r['URLString'],
+            DateAdded=datetime.datetime.strptime(r['DateAdded'], "%Y-%m-%d %H:%M:%S"),
+            Data=r.get('Data'),
+            siteName=r.get('siteName'),
+            PreviewText=r.get('PreviewText'),
+            DateLastFetched=datetime.datetime.strptime(r['DateLastFetched'], "%Y-%m-%d %H:%M:%S") if 'DateLastFetched' in r else None,
+            imageURL=r.get('imageURL'),
+            didAttemptToFetchIconFromImageUrlKey=r.get('didAttemptToFetchIconFromImageUrlKey'),
+            NumberOfFailedLoadsWithUnknownOrNonRecoverableError=r.get('NumberOfFailedLoadsWithUnknownOrNonRecoverableError'),
+            FetchResult=r.get('FetchResult'),
+            AddedLocally=r.get('AddedLocally')
+            )
+        
+        return ritem
+
+
+    @classmethod
+    def from_reading_list_dict(cls, r: Dict, include_data: bool):
         ritem = cls(
             title=r['URIDictionary']['title'],
             ServerID=r['Sync']['ServerID'],
