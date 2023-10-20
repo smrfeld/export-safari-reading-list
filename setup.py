@@ -10,7 +10,7 @@ setup(
     description="Safari reading list",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/smrfeld/safari-reading-list",
+    url="https://github.com/smrfeld/export-safari-reading-list",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
